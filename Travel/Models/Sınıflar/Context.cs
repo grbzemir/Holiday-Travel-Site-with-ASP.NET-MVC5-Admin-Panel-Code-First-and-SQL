@@ -14,19 +14,27 @@ namespace Travel.Models.Sınıflar
 		public DbSet<İletişim> İletişims { get; set; }
 		public DbSet<Yorumlar> Yorumlars { get; set; }
 
+		// Yeni yapıcı
+		public Context(DbContextOptions<Context> options) : base(options)
+		{
+		}
+
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			// Uygulamanın çalışma dizinindeki appsettings.json dosyasından bağlantı dizesini çekme
-			var configuration = new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile("appsettings.json")
-				.Build();
+			if (!optionsBuilder.IsConfigured)
+			{
+				var configuration = new ConfigurationBuilder()
+					.SetBasePath(Directory.GetCurrentDirectory())
+					.AddJsonFile("appsettings.json")
+					.Build();
 
-			// Bağlantı dizesini appsettings.json'dan alıyoruz
-			var connectionString = configuration.GetConnectionString("DefaultConnection");
+				// Bağlantı dizesini appsettings.json'dan alıyoruz
+				var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-			// SqlServer bağlantısını ayarlıyoruz
-			optionsBuilder.UseSqlServer(connectionString);
+				// SqlServer bağlantısını ayarlıyoruz
+				optionsBuilder.UseSqlServer(connectionString);
+			}
 		}
 	}
 }
