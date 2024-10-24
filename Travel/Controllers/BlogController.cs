@@ -17,5 +17,11 @@ namespace Travel.Controllers
             var bloglar = _context.Blogs.ToList();
             return View(bloglar);
         }
+
+        public IActionResult BlogDetay(int id)
+        {
+            var blogbul = _context.Blogs.Where(x => x.ID == id).ToList();
+            return View(blogbul);
+        }
     }
 }
