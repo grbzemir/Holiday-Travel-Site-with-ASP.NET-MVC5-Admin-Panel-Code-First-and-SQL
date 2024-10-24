@@ -112,23 +112,23 @@ namespace Travel.Migrations
                     KullaniciAdi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Mail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Yorum = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BlogID = table.Column<int>(type: "int", nullable: false)
+                    Blogid = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Yorumlars", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Yorumlars_Blogs_BlogID",
-                        column: x => x.BlogID,
+                        name: "FK_Yorumlars_Blogs_Blogid",
+                        column: x => x.Blogid,
                         principalTable: "Blogs",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Yorumlars_BlogID",
+                name: "IX_Yorumlars_Blogid",
                 table: "Yorumlars",
-                column: "BlogID");
+                column: "Blogid");
         }
 
         /// <inheritdoc />

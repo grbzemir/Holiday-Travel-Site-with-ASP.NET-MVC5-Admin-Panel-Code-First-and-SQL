@@ -1,18 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Travel.Models.Sınıflar;
 
 namespace Travel.Controllers
 {
     public class DefaultController : Controller
     {
-        //Controller yapısına gelen isteklere göre işlem yapıp kullanıcıya View ile isteğe göre bilgileri geri döndüren metotlara verilen isimdir.
+        private readonly Context _context;
+
+        public DefaultController(Context context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var degerler = _context.Blogs.ToList();
+            return View(degerler);
         }
 
         public IActionResult About()
         {
             return View();
+        }
+
+        public IActionResult Partial1()
+        {
+            return PartialView();
         }
     }
 }

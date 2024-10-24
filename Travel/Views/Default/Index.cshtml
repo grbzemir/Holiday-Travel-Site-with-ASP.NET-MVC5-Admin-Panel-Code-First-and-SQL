@@ -1,4 +1,5 @@
-﻿
+﻿@using Travel.Models.Sınıflar
+@model List<Blog>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -59,12 +60,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="header_bottom_right_images">
 
-                        <div class="slider">
+                        <div class="slider" style="width:550px; height:365px;">
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
+                                @foreach(var x in Model)
+                                {
+                                    <li><img src="@x.BlogImage" alt=""></li>
+                                }
+                                @*<li><img src="~/web/images/img2.jpg" alt=""></li>
                                 <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+                                <li><img src="~/web/images/img4.jpg" alt=""></li>*@
                             </ul>
                         </div>
                     </div>
@@ -79,45 +83,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="wrapper">
                 <div class="con-top">
                     <h3>Welcome to our Travel Company!</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facil</p>
-                </div>
-                <div class="con-bot">
-                    <div class="left">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-                            <h4>Lorem ipsum dolar sit amet , conte adipiscing elit dolor</h4>
-                            <span class="doller">$1024.99</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                            <p><a href="#"><span class="read">Read More</span></a></p>
-                        </div>
-                    </div>
-                    <div class="left">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic1.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-                            <h4>Lorem ipsum dolor sit amet , conte adipiscing elit dolor</h4>
-                            <span class="doller">$900.99</span>
-                            <p>Lorem ipsum dolor sit amet , consectetuer adipiscing elit , sed diam nonummy nibh euismo</p>
-                            <p><a href="#"><span class="read">Read More</span></a></p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic2.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-                            <h4>Lorem ipsum dolor sit amet , conte adipiscing elit dolor sit amet</h4>
-                            <span class="doller">$924.99</span>
-                            <p>Lorem ipsum dolor sit amet , consectetuer adipiscing elit , sed diam nonummy nibh euismo</p>
-                            <p><a href="#"><span class="read">Read More</span></a></p>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+                    <p>
+                        Welcome to our Travel Company! We are thrilled to invite you on a journey of a lifetime. Our mission is to provide you with unique and unforgettable travel experiences, tailored to your preferences and desires. Whether you're seeking adventure, relaxation, cultural immersion, or a combination of these, we have something special in store for you.
 
+                        Imagine strolling through ancient cities, exploring hidden gems, and indulging in local delicacies. Our experienced team of travel experts is dedicated to ensuring every aspect of your trip is meticulously planned and seamlessly executed. From the moment you start dreaming about your destination to the moment you return home, we are here to make your travel dreams come true.
+
+                        Let us take care of all the details, so you can focus on creating lasting memories. With our extensive network of partners and our commitment to excellence, you can rest assured that you are in good hands. Whether it's a solo adventure, a romantic getaway, a family vacation, or a group excursion, we cater to all types of travelers.
+
+                        Join us as we explore the wonders of the world, one destination at a time. Your adventure begins here. Welcome to the start of something extraordinary. Ready to embark on your next journey? Let's make it happen.
+
+                        Safe travels and happy exploring!
+                    </p>
+                </div>
+                @await Html.PartialAsync("Partial1")
                 <div class="grids">
                     <div class="box1">
                         <div class="padding">

@@ -12,7 +12,7 @@ using Travel.Models.Sınıflar;
 namespace Travel.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20241023223019_InitialCreate")]
+    [Migration("20241024162510_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -161,7 +161,7 @@ namespace Travel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("BlogID")
+                    b.Property<int>("Blogid")
                         .HasColumnType("int");
 
                     b.Property<string>("KullaniciAdi")
@@ -178,7 +178,7 @@ namespace Travel.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BlogID");
+                    b.HasIndex("Blogid");
 
                     b.ToTable("Yorumlars");
                 });
@@ -216,7 +216,7 @@ namespace Travel.Migrations
                 {
                     b.HasOne("Travel.Models.Sınıflar.Blog", "Blog")
                         .WithMany("Yorumlars")
-                        .HasForeignKey("BlogID")
+                        .HasForeignKey("Blogid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

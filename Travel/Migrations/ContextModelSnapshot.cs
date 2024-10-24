@@ -158,7 +158,7 @@ namespace Travel.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("BlogID")
+                    b.Property<int>("Blogid")
                         .HasColumnType("int");
 
                     b.Property<string>("KullaniciAdi")
@@ -175,7 +175,7 @@ namespace Travel.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BlogID");
+                    b.HasIndex("Blogid");
 
                     b.ToTable("Yorumlars");
                 });
@@ -213,7 +213,7 @@ namespace Travel.Migrations
                 {
                     b.HasOne("Travel.Models.Sınıflar.Blog", "Blog")
                         .WithMany("Yorumlars")
-                        .HasForeignKey("BlogID")
+                        .HasForeignKey("Blogid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
