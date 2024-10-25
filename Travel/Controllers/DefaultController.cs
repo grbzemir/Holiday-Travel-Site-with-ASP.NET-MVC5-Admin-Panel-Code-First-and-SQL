@@ -23,9 +23,22 @@ namespace Travel.Controllers
             return View();
         }
 
-        public IActionResult Partial1()
+        public PartialViewResult Partial1()
         {
-            return PartialView();
+            var degerler = _context.Blogs.OrderByDescending(x=>x.ID).Take(2).ToList();
+            return PartialView(degerler);
+        }
+
+        public PartialViewResult Partial2()
+        {
+            var deger = _context.Blogs.Where(x => x.ID == 1).ToList();
+            return PartialView(deger);
+        }
+
+        public PartialViewResult Partial3()
+        {
+            var deger = _context.Blogs.ToList();
+            return PartialView(deger);
         }
     }
 }
