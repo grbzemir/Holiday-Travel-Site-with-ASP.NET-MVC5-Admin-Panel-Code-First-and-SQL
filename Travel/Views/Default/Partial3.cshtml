@@ -4,17 +4,24 @@
 <div class="padding">
     <h4>This Week's Top 10</h4>
     <ul class="list list-pad">
-        <li class="list-bg1"><span>1.</span><a href="#">Türkiye</a></li>
-        <li class="list-bg1"><span>2.</span><a href="#">Hayallerin Şehri Roma</a></li>
-        <li class="list-bg"><span>3.</span><a href="#">Eyfelin Önünde Bir Gündüz Geçirmek</a></li>
-        <li class="list-bg1"><span>4.</span><a href="#">Lyon</a></li>
-        <li class="list-bg"><span>5.</span><a href="#">CapeTown</a></li>
-        <li class="list-bg1"><span>6.</span><a href="#">Rusya</a></li>
-        <li class="list-bg"><span>7.</span><a href="#">Hollandaya Doğru Giderken</a></li>
-        <li class="list-bg1"><span>8.</span><a href="#">Rotterdam' da Bir Tren Yolculuğu</a></li>
-        <li class="list-bg"><span>9.</span><a href="#">Brükselde Aksam Yemeği</a></li>
-        <li class="list-bg1"><span>10.</span><a href="#">Bir Sonraki Rota Belçika</a></li>
-       @*  <li class="list-bg1"><span>11.</span><a href="#">Hollandaya Veda Ederken</a></li> *@
+        @* @{
+            int i = 0;
+        }
+        @foreach(var x in model)
+        { *@
+
+       @*  <li class="list-bg1"><span>@{i++;} @i.</span><a href="/Blog/BlogDetay/@x.ID">@x.Baslik</li> *@
+            <li class="list-bg1"><span>1.</span><a href="#">Türkiye</a></li>
+            <li class="list-bg1"><span>2.</span><a href="#">Hayallerin Şehri Roma</a></li>
+            <li class="list-bg"><span>3.</span><a href="#">Eyfelin Önünde Bir Gündüz Geçirmek</a></li>
+            <li class="list-bg1"><span>4.</span><a href="#">Lyon</a></li>
+            <li class="list-bg"><span>5.</span><a href="#">CapeTown</a></li>
+            <li class="list-bg1"><span>6.</span><a href="#">Rusya</a></li>
+            <li class="list-bg"><span>7.</span><a href="#">Hollandaya Doğru Giderken</a></li>
+            <li class="list-bg1"><span>8.</span><a href="#">Rotterdam' da Bir Tren Yolculuğu</a></li>
+            <li class="list-bg"><span>9.</span><a href="#">Brükselde Aksam Yemeği</a></li>
+            <li class="list-bg1"><span>10.</span><a href="#">Bir Sonraki Rota Belçika</a></li>
+            <li class="list-bg1"><span>11.</span><a href="#">Hollandaya Veda Ederken</a></li>
        </ul>
-    <a href="#" class="link1">See all hotels</a>
+    <a href="/Blog/Index/" class="link1">See all hotels</a>
 </div>

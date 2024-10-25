@@ -14,7 +14,7 @@ namespace Travel.Controllers
 
         public IActionResult Index()
         {
-            var degerler = _context.Blogs.ToList();
+            var degerler = _context.Blogs.OrderBy(b => b.ID).Take(4).ToList();
             return View(degerler);
         }
 
@@ -40,5 +40,20 @@ namespace Travel.Controllers
             var deger = _context.Blogs.ToList();
             return PartialView(deger);
         }
+
+
+        public PartialViewResult Partial4()
+        {
+            var deger = _context.Blogs.OrderBy(b => b.ID).Take(3).ToList();
+            return PartialView(deger);
+        }
+
+
+        public PartialViewResult Partial5()
+        {
+            var deger = _context.Blogs.Take(3).OrderByDescending(x => x.ID).ToList();
+            return PartialView(deger);
+        }
+
     }
 }
