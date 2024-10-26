@@ -17,7 +17,24 @@ namespace Travel.Controllers
         public IActionResult Index()
         {
             var degerler = _context.Blogs.ToList();
+            return View(degerler);
+        }
+
+
+        [HttpGet]
+        public IActionResult YeniBlog()
+        {
+
             return View();
+
+        }
+
+        [HttpPost]
+        public IActionResult YeniBlog()
+        {
+
+            return View();
+
         }
     }
 }
