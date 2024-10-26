@@ -30,10 +30,11 @@ namespace Travel.Controllers
         }
 
         [HttpPost]
-        public IActionResult YeniBlog()
+        public IActionResult YeniBlog(Blog p)
         {
-
-            return View();
+            _context.Blogs.Add(p);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
 
         }
     }
