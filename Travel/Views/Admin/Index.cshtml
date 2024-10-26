@@ -1,8 +1,30 @@
-﻿
+﻿@using Travel.Models.Sınıflar
+@model List<Blog>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Blog Listesi</h1>
+<br />
 
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>1</td>
+            <td>Deneme</td>
+            <td>Sil</td>
+            <td>Güncelle</td>
+
+        </tr>
+        
+    }
+</table>
