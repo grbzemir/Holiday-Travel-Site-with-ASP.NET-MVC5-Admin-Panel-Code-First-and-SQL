@@ -29,6 +29,20 @@ namespace Travel.Controllers
             return View(by);
         }
 
+        [HttpGet]
+
+        public PartialViewResult YorumYap()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult YorumYap(Yorumlar y)
+        {
+            _context.Yorumlars.Add(y);
+            _context.SaveChanges();
+            return PartialView();
+        }
 
     }
 }

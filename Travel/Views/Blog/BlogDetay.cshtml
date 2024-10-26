@@ -57,16 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 				</ul>
 				}
-				<div class="content-form">
-					<h3>Leave a comment</h3>
-					<form>
-						<input type="text" placeholder="Name" required />
-						<input type="text" placeholder="Email" required />
-						<input type="text" placeholder="Phone" required />
-						<textarea placeholder="Message"></textarea>
-						<input type="submit" value="SEND" />
-					</form>
-				</div>
+				@await Html.PartialAsync("YorumYap", "Blog")
 			</div>
 
 			<div class="col-md-4 side-content">

@@ -37,5 +37,33 @@ namespace Travel.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public IActionResult BlogSil(int id)
+        {
+            var b = _context.Blogs.Find(id);
+            _context.Blogs.Remove(b);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult BlogGetir(int id)
+        {
+            var bl = _context.Blogs.Find(id);   
+            return View("BlogGetir" , bl);
+
+        }
+
+        public IActionResult BlogGuncelle(Blog b)
+        {
+            var blg = _context.Blogs.Find(b.ID);
+            blg.Aciklama = b.Aciklama;
+            blg.Baslik = b.Baslik;
+            blg.BlogImage = b.BlogImage;
+            blg.Tarih = b.Tarih;
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }
