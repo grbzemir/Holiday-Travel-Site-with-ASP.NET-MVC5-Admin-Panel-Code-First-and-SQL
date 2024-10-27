@@ -1,0 +1,25 @@
+﻿@model Travel.Models.Sınıflar.Yorumlar
+@{
+    ViewData["Title"] = "YeniYorum";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Yorum Ekleme</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.KullaniciAdi)
+    @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Blogid)
+    @Html.TextBoxFor(x => x.Blogid, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yorum)
+    @Html.TextAreaFor(x => x.Yorum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Yorum Kaydet</button>
+</form>
+

@@ -49,8 +49,8 @@ namespace Travel.Controllers
 
         public IActionResult BlogGetir(int id)
         {
-            var bl = _context.Blogs.Find(id);   
-            return View("BlogGetir" , bl);
+            var bl = _context.Blogs.Find(id);
+            return View("BlogGetir", bl);
 
         }
 
@@ -65,5 +65,58 @@ namespace Travel.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public IActionResult YorumListesi()
+        {
+            var yorumlar = _context.Yorumlars.ToList();
+            return View(yorumlar);
+        }
+
+        [HttpGet]
+
+        public IActionResult YeniYorum()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public IActionResult YeniYorum(Yorumlar n)
+        {
+
+            _context.Yorumlars.Add(n);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult YorumSil(int id)
+        {
+            var b = _context.Yorumlars.Find(id);
+            _context.Yorumlars.Remove(b);
+            _context.SaveChanges();
+            return RedirectToAction("YorumListesi");
+        }
+
+        public IActionResult YorumGetir(int id)
+        {
+            var yr = _context.Yorumlars.Find(id);
+            return View("YorumGetir", yr);
+                
+        }
+
+        public IActionResult YorumGuncelle(Yorumlar y)
+        {
+            var yrm = _context.Yorumlars.Find(y.ID);
+            yrm.KullaniciAdi = y.KullaniciAdi;
+            yrm.Mail = y.Mail;
+            yrm.Yorum = y.Yorum;
+            _context.SaveChanges();
+            return RedirectToAction("YorumListesi");
+
+        }
+
+        
+
     }
-}
+  }

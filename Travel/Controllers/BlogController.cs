@@ -31,8 +31,9 @@ namespace Travel.Controllers
 
         [HttpGet]
 
-        public PartialViewResult YorumYap()
+        public PartialViewResult YorumYap(int id)
         {
+            ViewBag.deger = id;
             return PartialView();
         }
 
@@ -43,6 +44,7 @@ namespace Travel.Controllers
             _context.SaveChanges();
             return PartialView();
         }
+
 
     }
 }

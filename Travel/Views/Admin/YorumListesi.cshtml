@@ -1,0 +1,36 @@
+﻿@using Travel.Models.Sınıflar
+@model List<Yorumlar>
+@{
+    ViewData["Title"] = "YorumListesi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>YorumListesi</h1>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>KullaniciAdi</th>
+        <th>Mail</th>
+        <th>Yorum</th>
+        <th>Blog</th>
+         <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach(var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.KullaniciAdi</td>
+            <td>@x.Mail>
+            <td>@x.Yorum</td>
+            <td>@x.Blogid</td>
+            <td><a href="/Admin/YorumSil/@x.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/YorumGetir/@x.ID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<a href="/Admin/YeniYorum" class="btn btn-primary">Yeni Yorum</a>
