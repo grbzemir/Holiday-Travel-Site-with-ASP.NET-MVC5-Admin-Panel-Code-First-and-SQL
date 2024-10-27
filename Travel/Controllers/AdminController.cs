@@ -1,20 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Travel.Models.Sınıflar;
 
 namespace Travel.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         //Dependy Injection
         private readonly Context _context;
 
         //ctor
+
         public AdminController(Context context)
         {
             _context = context;
         }
 
-        public IActionResult Index()
+		
+		public IActionResult Index()
         {
             var degerler = _context.Blogs.ToList();
             return View(degerler);
