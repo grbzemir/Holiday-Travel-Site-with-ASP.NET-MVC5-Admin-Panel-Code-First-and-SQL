@@ -21,11 +21,14 @@ namespace Travel.Controllers
 			return View();
 		}
 
+		//Get ile alıyorum
 		[HttpGet]
 		public IActionResult Login()
 		{
 			return View();
 		}
+
+		//Post ile görüyorum
 
 		[HttpPost]
 		public async Task<IActionResult> Login(Admin ad)
