@@ -24,7 +24,7 @@ namespace Travel.Controllers
             return View(degerler);
         }
 
-
+        //Get ile alıyorum
         [HttpGet]
         public IActionResult YeniBlog()
         {
@@ -32,6 +32,7 @@ namespace Travel.Controllers
             return View();
 
         }
+        //Post ile görüyorum
 
         [HttpPost]
         public IActionResult YeniBlog(Blog p)
