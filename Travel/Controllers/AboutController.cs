@@ -5,6 +5,8 @@ namespace Travel.Controllers
 {
 	public class AboutController : Controller
 	{
+
+		//Dependy Injection!
 		private readonly Context _context;
 
 		public AboutController(Context context)
